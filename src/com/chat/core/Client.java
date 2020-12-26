@@ -26,7 +26,7 @@ public class Client {
             ausgang.writeUTF(s1);
 
             //Antwort vom Server einlesen
-            String result = eingang.readLine();
+            String result = eingang.readUTF();
                 //Beenden vom Programm
                 /*if(result == "logout"){
                  System.out.println("Für beenden drücke [x]")
@@ -38,7 +38,7 @@ public class Client {
                      System.exit(0);
                  }
                 }*/
-            System.out.println("FROM SERVER:"+result);
+            System.out.println(result);
 
             client.close();
         } catch(Exception e) {
