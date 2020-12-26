@@ -7,7 +7,7 @@ public class Server {
     private final int port = 187;
     public Server() {
         try {
-            socket = new ServerSocket(0);
+            socket = new ServerSocket(port);
         } catch (Exception e) {
 
         }
