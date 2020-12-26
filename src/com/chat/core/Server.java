@@ -17,10 +17,8 @@ public class Server {
                 System.out.println("Server up and running");
                 while(true) {
                     try{
-
                         Socket server = serverSocket.accept();
                         System.out.println("Just connected to " + server.getRemoteSocketAddress());
-
                         server.close();
                     }catch(SocketTimeoutException s) {
 
