@@ -61,7 +61,8 @@ public class Server {
               try {
                   sendMessage(this, "Bitte gib deinen Name ein");
                   String input = in.readUTF();
-                  if (input.length() <= 3) {
+                  if (input.length() < 3) {
+
                       continue;
                   }
                   clientName = input;

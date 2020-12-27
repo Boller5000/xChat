@@ -19,14 +19,24 @@ public class Client {
             // Eingang & Ausgang von Daten festlegen
             DataOutputStream ausgang = new DataOutputStream(client.getOutputStream());
             DataInputStream eingang = new DataInputStream(client.getInputStream());
+            new Thread(()->{
+                while(true) {
+                    try {
+                        String result = eingang.readUTF();
+                        System.out.println(result);
 
+                    } catch (Exception e) {
+                    }
+                }
+            }).start();
             //Zeile einlesen
+            while(true) {
             System.out.println("Bitte was eingeben.");
-            String s1 = eingangUser.readLine();
-            ausgang.writeUTF(s1);
+                String s1 = eingangUser.readLine();
+                ausgang.writeUTF(s1);
 
-            //Antwort vom Server einlesen
-            String result = eingang.readUTF();
+                //Antwort vom Server einlesen
+               // String result = eingang.readUTF();
                 //Beenden vom Programm
                 /*if(result == "logout"){
                  System.out.println("Für beenden drücke [x]")
@@ -38,9 +48,9 @@ public class Client {
                      System.exit(0);
                  }
                 }*/
-            System.out.println(result);
-
-            client.close();
+               // System.out.println(result);
+            }
+            //client.close();
         } catch(Exception e) {
             e.printStackTrace();
         }
