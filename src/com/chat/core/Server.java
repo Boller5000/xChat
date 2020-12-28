@@ -63,7 +63,7 @@ public class Server {
                       sendMessage(this, "Bitte gib deinen Name ein");
                       String input = in.readUTF();
                       if (input.length() < 3) {
-                          sendMessage(this, "Dein name ist zu Kurz oder ist schon vergeben!");
+                          sendMessage(this, "Dein Name ist zu kurz oder ist schon vergeben!");
                           continue;
                       }
                       clientName = input;
@@ -74,7 +74,7 @@ public class Server {
                   try {
                       client.close();
                       connections.remove(this);
-                      serverBroadcast("Da konnte jemand seinen Namen nicht eingeben - unbekannter disconnected");
+                      serverBroadcast("Da konnte jemand seinen Namen nicht eingeben - Unbekannter disconnected");
                   } catch(Exception er){}
                   break;
               }
@@ -106,13 +106,13 @@ public class Server {
 
                   }catch(ArrayIndexOutOfBoundsException aobe) {
                       try {
-                          sendServerMessage(this, "fehlerhafte naricht");
+                          sendServerMessage(this, "fehlerhafte Nachricht");
                       } catch(Exception e){}
                   } catch (Exception se) {
                       try {
                           client.close();
                           connections.remove(this);
-                          serverBroadcast(clientName + " hat den chat verlassen");
+                          serverBroadcast(clientName + " hat den Chat verlassen");
                       } catch (Exception e) {}
                       break;
                   }
@@ -125,7 +125,7 @@ public class Server {
     /**
      *
      * @param message
-     * broadcasted die Naricht an alle clients, serverweit
+     * broadcasted die Nachricht an alle clients, serverweit
      */
     private void broadcast(String message) {
         System.out.println(broadcast_string + message);
