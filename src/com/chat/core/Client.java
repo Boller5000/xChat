@@ -14,10 +14,15 @@ public class Client {
             JFrame ui = new JFrame("xChat");
             ui.setSize(500, 500);
             ui.setVisible(true);
+
             JLabel test = new JLabel("king",JLabel.CENTER);
             ui.add(test);
             test.setVerticalAlignment(JLabel.TOP);
             test.setHorizontalTextPosition(JLabel.LEFT);
+
+            JTextField text = new JTextField("text", JTextField.CENTER);
+            ui.add(text);
+            text.setHorizontalAlignment(JTextField.CENTER);
 
             Socket client = new Socket("217.81.193.203", 187);
             System.out.println("Connected to: " + client.getRemoteSocketAddress());
