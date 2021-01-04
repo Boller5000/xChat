@@ -23,13 +23,19 @@ public class Client {
 
             JFrame xChat = new JFrame("xChat");
             JLabel label = new JLabel("Label Beispiel");
+            JTextField text = new JTextField(eingang.readUTF());
+            xChat.add(text);
             xChat.add(label);
             xChat.setSize(500, 500);
             xChat.setVisible(true);
             xChat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-            label.setVerticalAlignment(250);
-            label.setHorizontalTextPosition(JLabel.CENTER);
+            label.setVerticalAlignment(JLabel.TOP);
+            label.setHorizontalAlignment(JLabel.CENTER);
+            text.(JLabel.CENTER);
+            text.setHorizontalAlignment(JLabel.CENTER);
+
+
 
             // parallelen Thread aufrufen und gucken ob es eine Nachricht gibt
             new Thread(() -> {
