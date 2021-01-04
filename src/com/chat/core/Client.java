@@ -28,16 +28,17 @@ public class Client {
 
             JPanel panel = new JPanel();
             panel.setSize(500,500);
-            panel.setBackground(Color.BLUE);
             panel.setLayout(null);
             JTextField text = new JTextField(eingang.readUTF(),25);
-            text.setBounds(100,100,100,100);
+            text.setBounds(100,400,300,50);
             panel.add(text);
+            JLabel label = new JLabel("Funktioniert es?");
+            label.setBounds(200,10,100,10);
+            panel.add(label);
             xChat.add(panel);
 
-            JLabel label = new JLabel("Funktioniert es?");
-            panel.add(label);
-            label.setLocation(10,10);
+
+
 
             xChat.setVisible(true);
             // parallelen Thread aufrufen und gucken ob es eine Nachricht gibt
