@@ -34,11 +34,12 @@ public class Client {
 
 
             JPanel panel = new JPanel();
-            panel.setBackground(Color.darkGray);
+            panel.setBackground(new Color(146,94,185));
             panel.setSize(500,500);
             panel.setLayout(null);
             JTextField text = new JTextField("",25);
             EmptyBorder eBord = new EmptyBorder(2,10,2,10);
+            text.setForeground(new Color(46,155,151));
             text.setBorder(eBord);
             text.setBounds(100,375,300,50);
             panel.add(text);
@@ -48,6 +49,7 @@ public class Client {
             label.setBounds(135,20,230,20);
             panel.add(label);
             JTextArea text2 = new JTextArea();
+            text2.setForeground(new Color(46,155,151));
             text2.setBorder(eBord);
             text2.setEditable(false);
             JScrollPane scroll = new JScrollPane(text2);
