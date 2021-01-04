@@ -1,6 +1,8 @@
 package com.chat.core;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -26,6 +28,7 @@ public class Client {
             xChat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             xChat.setSize(500, 500);
 
+
             JPanel panel = new JPanel();
             panel.setSize(500,500);
             panel.setLayout(null);
@@ -41,10 +44,40 @@ public class Client {
             scroll.setBounds(100,150,300,150);
             panel.add(scroll);
 
+
             //kleiner change
+
 
             xChat.add(panel);
             xChat.setVisible(true);
+            text.addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+
+                }
+
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+                        System.out.println("check2");
+                        try {
+                            String s1 = text.getText();
+                            text.setText("");
+                            if (s1.equals("/exit")) {
+                                System.exit(0);
+                            }
+                            ausgang.writeUTF(s1);
+                        }catch(Exception epsilon){}
+                    }
+                }
+
+                @Override
+                public void keyReleased(KeyEvent e) {
+
+                }
+            });
+            //xChat.setFocusable(true);
+
             // parallelen Thread aufrufen und gucken ob es eine Nachricht gibt
             new Thread(() -> {
                 while (true) {
