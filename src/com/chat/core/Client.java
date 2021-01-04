@@ -1,10 +1,8 @@
 package com.chat.core;
 
 import java.awt.*;
-import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.beans.PropertyChangeListener;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -12,8 +10,6 @@ import java.io.InputStreamReader;
 import java.net.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.DocumentListener;
-
 
 public class Client {
     public Client() {
@@ -31,8 +27,6 @@ public class Client {
             JFrame xChat = new JFrame("xChat");
             xChat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             xChat.setSize(500, 500);
-
-
 
             JPanel panel = new JPanel();
             panel.setBackground(new Color(146,94,185));
@@ -62,8 +56,7 @@ public class Client {
             text.addKeyListener(new KeyListener() {
                 @Override
                 public void keyTyped(KeyEvent e) {
-
-                }//
+                }
 
                 @Override
                 public void keyPressed(KeyEvent e) {
@@ -76,6 +69,7 @@ public class Client {
                                 System.exit(0);
                             } else if(s1.equals("/clean")) {
                                 text2.setText("");
+                                text2.setText("Chat cleaned!");
                                 return;
                             }
                             ausgang.writeUTF(s1);
@@ -88,7 +82,6 @@ public class Client {
 
                 }
             });
-            //xChat.setFocusable(true);
 
             // parallelen Thread aufrufen und gucken ob es eine Nachricht gibt
             new Thread(() -> {
