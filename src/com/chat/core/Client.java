@@ -29,15 +29,17 @@ public class Client {
             JPanel panel = new JPanel();
             panel.setSize(500,500);
             panel.setLayout(null);
-            JTextField text = new JTextField(eingang.readUTF(),25);
+            JTextField text = new JTextField("Nachricht eingeben",25);
             text.setBounds(100,400,300,50);
             panel.add(text);
             JLabel label = new JLabel("Funktioniert es?");
             label.setBounds(200,10,100,10);
             panel.add(label);
-            JTextArea text2 = new JTextArea("funktioniert");
-            text2.setBounds(100,150,300,150);
-            panel.add(text2);
+            JTextArea text2 = new JTextArea();
+            text2.setEditable(false);
+            JScrollPane scroll = new JScrollPane(text2);
+            scroll.setBounds(100,150,300,150);
+            panel.add(scroll);
 
             xChat.add(panel);
             xChat.setVisible(true);
