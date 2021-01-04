@@ -69,7 +69,7 @@ public class Client {
                             ausgang.writeUTF(s1);
                         }catch(Exception epsilon){}
                     }
-                }//
+                }
 
                 @Override
                 public void keyReleased(KeyEvent e) {
