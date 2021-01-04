@@ -28,8 +28,10 @@ public class Client {
 
             JPanel panel = new JPanel();
             panel.setSize(500,500);
+            panel.setBackground(Color.BLUE);
+            panel.setLayout(null);
             JTextField text = new JTextField(eingang.readUTF(),25);
-
+            text.setBounds(100,100,100,100);
             panel.add(text);
             xChat.add(panel);
 
