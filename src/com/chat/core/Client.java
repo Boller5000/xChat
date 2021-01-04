@@ -76,6 +76,7 @@ public class Client {
                                 System.exit(0);
                             } else if(s1.equals("/clean")) {
                                 text2.setText("");
+                                return;
                             }
                             ausgang.writeUTF(s1);
                         }catch(Exception epsilon){}
@@ -104,15 +105,6 @@ public class Client {
                     }
                 }
             }).start();
-            //Zeile einlesen
-            while (true) {
-                System.out.println("Nachricht eingeben:");
-                String s1 = eingangUser.readLine();
-                if (s1.equals("/exit")) {
-                    System.exit(0);
-                }
-                ausgang.writeUTF(s1);
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
