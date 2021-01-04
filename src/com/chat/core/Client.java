@@ -1,14 +1,18 @@
 package com.chat.core;
 
 import java.awt.*;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.beans.PropertyChangeListener;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentListener;
 
 
 public class Client {
@@ -30,23 +34,25 @@ public class Client {
 
 
             JPanel panel = new JPanel();
+            panel.setBackground(Color.darkGray);
             panel.setSize(500,500);
             panel.setLayout(null);
-            JTextField text = new JTextField("Nachricht eingeben",25);
-            text.setBounds(100,400,300,50);
+            JTextField text = new JTextField("",25);
+            EmptyBorder eBord = new EmptyBorder(2,10,2,10);
+            text.setBorder(eBord);
+            text.setBounds(100,375,300,50);
             panel.add(text);
-            JLabel label = new JLabel("Funktioniert es?");
-            label.setBounds(200,10,100,10);
+            JLabel label = new JLabel("xChat - Dein Messenger!");
+            label.setFont(new Font("Verdana", Font.BOLD, 16));
+            label.setForeground(Color.white);
+            label.setBounds(135,20,230,20);
             panel.add(label);
             JTextArea text2 = new JTextArea();
+            text2.setBorder(eBord);
             text2.setEditable(false);
             JScrollPane scroll = new JScrollPane(text2);
-            scroll.setBounds(100,150,300,150);
+            scroll.setBounds(50,75,400,250);
             panel.add(scroll);
-
-
-            //kleiner change
-
 
             xChat.add(panel);
             xChat.setVisible(true);
