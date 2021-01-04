@@ -63,10 +63,11 @@ public class Server {
                       sendMessage(this, "Bitte gib deinen Namen ein");
                       String input = in.readUTF();
                       if (input.length() < 3) {
-                          sendMessage(this, "Dein Name ist zu kurz oder ist schon vergeben!");
+                          sendMessage(this, "Dein Name ist zu kurz/lang oder ist schon vergeben!");
                           continue;
                       }
                       clientName = input;
+                      broadcast(clientName + " has joined xChat");
                       break;
 
               } catch(Exception e){
@@ -96,12 +97,13 @@ public class Server {
                           case "/help": sendMessage(this,"Command List: help,msg,name,ping");continue;
                           case "/ping" : sendMessage(this,"pong");continue;
 
+
                           default: {
                               message = "[" + clientName + "]: " + message;
                               broadcast(message);
 
                           }
-                      }
+                      }//
 
 
                   }catch(ArrayIndexOutOfBoundsException aobe) {
@@ -133,7 +135,6 @@ public class Server {
 
             for (Connection s : connections) {
                 try {
-                    if(!message.contains("["+s.clientName + "]"))
                     s.out.writeUTF(message);
                 }catch(IOException e) {
                         System.err.println("IOException while Broadcasting(Connections lenght: " + connections.size() + ")");

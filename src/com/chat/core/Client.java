@@ -33,6 +33,7 @@ public class Client {
             xChat.setSize(500, 500);
 
 
+
             JPanel panel = new JPanel();
             panel.setBackground(new Color(146,94,185));
             panel.setSize(500,500);
@@ -73,6 +74,8 @@ public class Client {
                             text.setText("");
                             if (s1.equals("/exit")) {
                                 System.exit(0);
+                            } else if(s1.equals("/clean")) {
+                                text2.setText("");
                             }
                             ausgang.writeUTF(s1);
                         }catch(Exception epsilon){}
