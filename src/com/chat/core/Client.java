@@ -1,5 +1,6 @@
 package com.chat.core;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -22,21 +23,17 @@ public class Client {
             DataInputStream eingang = new DataInputStream(client.getInputStream());
 
             JFrame xChat = new JFrame("xChat");
-            JLabel label = new JLabel("Label Beispiel");
-            JTextField text = new JTextField(eingang.readUTF());
-            xChat.add(text);
-            xChat.add(label);
-            xChat.setSize(500, 500);
-            xChat.setVisible(true);
             xChat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            xChat.setSize(500, 500);
+            xChat.setLayout(new BorderLayout());
 
-            label.setVerticalAlignment(JLabel.TOP);
-            label.setHorizontalAlignment(JLabel.CENTER);
-            text.(JLabel.CENTER);
-            text.setHorizontalAlignment(JLabel.CENTER);
+            JPanel panel = new JPanel();
 
+            JTextField text = new JTextField(eingang.readUTF(),1);
+            panel.add(text, BorderLayout.CENTER);
+            xChat.add(panel);
 
-
+            xChat.setVisible(true);
             // parallelen Thread aufrufen und gucken ob es eine Nachricht gibt
             new Thread(() -> {
                 while (true) {
