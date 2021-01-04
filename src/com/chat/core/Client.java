@@ -1,29 +1,16 @@
 package com.chat.core;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.*;
-import javax.swing.JFrame;
+import javax.swing.*;
+
 
 public class Client {
     public Client() {
         try {
-            JFrame ui = new JFrame("xChat");
-            ui.setSize(500, 500);
-            ui.setVisible(true);
-
-            JLabel test = new JLabel("king",JLabel.CENTER);
-            ui.add(test);
-            test.setVerticalAlignment(JLabel.TOP);
-            test.setHorizontalTextPosition(JLabel.LEFT);
-
-            JTextField text = new JTextField("text", JTextField.CENTER);
-            ui.add(text);
-            text.setHorizontalAlignment(JTextField.CENTER);
-
             Socket client = new Socket("217.81.193.203", 187);
             System.out.println("Connected to: " + client.getRemoteSocketAddress());
 
@@ -33,6 +20,16 @@ public class Client {
             // Eingang & Ausgang von Daten festlegen
             DataOutputStream ausgang = new DataOutputStream(client.getOutputStream());
             DataInputStream eingang = new DataInputStream(client.getInputStream());
+
+            JFrame xChat = new JFrame("xChat");
+            JLabel label = new JLabel("Label Beispiel");
+            xChat.add(label);
+            xChat.setSize(500, 500);
+            xChat.setVisible(true);
+            xChat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            label.setVerticalAlignment(250);
+            label.setHorizontalTextPosition(JLabel.CENTER);
 
             // parallelen Thread aufrufen und gucken ob es eine Nachricht gibt
             new Thread(() -> {
