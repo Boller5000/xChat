@@ -25,13 +25,17 @@ public class Client {
             JFrame xChat = new JFrame("xChat");
             xChat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             xChat.setSize(500, 500);
-            xChat.setLayout(new BorderLayout());
 
             JPanel panel = new JPanel();
+            panel.setSize(500,500);
+            JTextField text = new JTextField(eingang.readUTF(),25);
 
-            JTextField text = new JTextField(eingang.readUTF(),1);
-            panel.add(text, BorderLayout.CENTER);
+            panel.add(text);
             xChat.add(panel);
+
+            JLabel label = new JLabel("Funktioniert es?");
+            panel.add(label);
+            label.setLocation(10,10);
 
             xChat.setVisible(true);
             // parallelen Thread aufrufen und gucken ob es eine Nachricht gibt

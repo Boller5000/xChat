@@ -60,7 +60,7 @@ public class Server {
           broadcast("Just connected to " + client.getRemoteSocketAddress() + " as client");
           while(clientName == socketAdress){
               try {
-                      sendMessage(this, "Bitte gib deinen Name ein");
+                      sendMessage(this, "Bitte gib deinen Namen ein");
                       String input = in.readUTF();
                       if (input.length() < 3) {
                           sendMessage(this, "Dein Name ist zu kurz oder ist schon vergeben!");
