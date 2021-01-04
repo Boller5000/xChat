@@ -46,6 +46,11 @@ public class Client {
                 while (true) {
                     try {
                         String result = eingang.readUTF();
+                        SwingUtilities.invokeLater(new Runnable(){
+                            public void run() {
+                                text2.append(result + "\n");
+                            }
+                        });
                         System.out.println(result);
                     } catch (Exception e) {
                     }
