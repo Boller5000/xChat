@@ -41,7 +41,7 @@ public class Client {
             scroll.setBounds(100,150,300,150);
             panel.add(scroll);
 
-            //kleiner change
+            //kleiner change king
 
             xChat.add(panel);
             xChat.setVisible(true);
