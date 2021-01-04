@@ -35,11 +35,11 @@ public class Client {
             JLabel label = new JLabel("Funktioniert es?");
             label.setBounds(200,10,100,10);
             panel.add(label);
+            JTextArea text2 = new JTextArea("funktioniert");
+            text2.setBounds(100,150,300,150);
+            panel.add(text2);
+
             xChat.add(panel);
-
-
-
-
             xChat.setVisible(true);
             // parallelen Thread aufrufen und gucken ob es eine Nachricht gibt
             new Thread(() -> {
