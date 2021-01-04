@@ -99,7 +99,7 @@ public class Server {
 
 
                           default: {
-                              message = "[" + clientName + "]: " + message;
+                              message = "[" + clientName + "]: " + message.replaceAll(":\\D","☻").replaceAll(":\\)","☺");
                               broadcast(message);
 
                           }
