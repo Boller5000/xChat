@@ -41,6 +41,8 @@ public class Client {
             scroll.setBounds(100,150,300,150);
             panel.add(scroll);
 
+            //kleiner change
+
             xChat.add(panel);
             xChat.setVisible(true);
             // parallelen Thread aufrufen und gucken ob es eine Nachricht gibt
